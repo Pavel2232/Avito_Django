@@ -9,7 +9,6 @@ from ads.views import Ad_by_User
 
 # TODO настройка роутов для модели
 router = SimpleRouter()
-router.register("users", UserViewSet, basename="users")
 router.register('ads',AdViewSet)
 comment_router = NestedSimpleRouter(router,
                                     r'ads',

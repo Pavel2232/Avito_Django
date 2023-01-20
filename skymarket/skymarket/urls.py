@@ -8,9 +8,8 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 urlpatterns = [
     path("api/admin/", admin.site.urls),
     path("api/", include('ads.urls')),
-    path('api/token/', include('djoser.urls')),
-    path('api/token/', include('djoser.urls.jwt')),
-    path(r'api/', include('djoser.urls.authtoken')),
+    path("api/", include('users.urls')),
+    path('api/', include('djoser.urls.authtoken')),
     path("api/redoc-tasks/", include("redoc.urls")),
     path("api/shema/", SpectacularAPIView.as_view(),name='schema'),
     path("api/shema/swagger-ui/", SpectacularSwaggerView.as_view(url_name= 'schema'),name='swagger-ui'),
