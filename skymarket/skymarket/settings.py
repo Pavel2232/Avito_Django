@@ -105,13 +105,13 @@ REST_FRAMEWORK = {
 # }
 # TODO здесь мы настраиваем Djoser
 DJOSER = {
-    'SEND_ACTIVATION_EMAIL': True,
-    "PASSWORD_RESET_CONFIRM_URL": "api/users/reset_password_confirm/{uid}/{token}",
+    "PASSWORD_RESET_CONFIRM_URL": 'password/reset/confirm/{uid}/{token}',
     'SERIALIZERS': {
         'user_create': 'users.serializers.UserRegistrationSerializer',
         'current_user': 'users.serializers.CurrentUserSerializer'
     },
-    'LOGIN_FIELD': 'email'
+    'LOGIN_FIELD': 'email',
+    'EMAIL':{'password_reset':'users.email.PasswordResetEmail'}
 }
 
 # Database
