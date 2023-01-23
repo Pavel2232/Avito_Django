@@ -12,11 +12,11 @@ class UserRegistrationSerializer(BaseUserRegistrationSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'password','first_name', 'last_name', 'phone']
+        fields = ['email', 'password','first_name', 'last_name', 'phone','image']
 
 
 
 class CurrentUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['email','password']
+        fields = ['email','password','image','first_name', 'last_name', 'phone',]

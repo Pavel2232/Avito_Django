@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from os.path import join, dirname
 from pathlib import Path
 
@@ -100,9 +101,11 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
-# SIMPLE_JWT = {
-#    'AUTH_HEADER_TYPES': ('JWT',),
-# }
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3),
+    'ALGORITHM': os.environ.get('ALGORITHM'),
+}
 # TODO здесь мы настраиваем Djoser
 DJOSER = {
     "PASSWORD_RESET_CONFIRM_URL": 'password/reset/confirm/{uid}/{token}',
